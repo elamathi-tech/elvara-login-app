@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 
@@ -9,8 +10,8 @@ app.use(express.json());
 const PORT = process.env.PORT || 5000;
 
 const user = {
-  email: "test@elvara.com",
-  password: "123456"
+  email: process.env.LOGIN_EMAIL,
+  password: process.env.LOGIN_PASSWORD
 };
 
 app.post("/login", (req, res) => {
