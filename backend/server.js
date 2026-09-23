@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const app = express();
 
@@ -30,8 +31,15 @@ app.post("/login", async (req, res) => {
   );
 
   if(passwordMatch){
+    const token = jwt.sign(
+      {email: user.email},
+      process.env.JWT_SECRET,
+      { expiresIn: "1h"}
+    );
+
     return res.status(200).json({
-      message: "Login successful"
+      message: "Login successful",
+      token: token
     });
   }
 
