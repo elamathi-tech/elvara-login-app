@@ -50,3 +50,8 @@ https://github.com/elamathi-tech/elvara-login-app
 ### Deployment
 - Render
 - GitHub
+
+## 🔐 Demo Credentials
+
+Email: `test@elvara.com`  
+Password: `123456`
